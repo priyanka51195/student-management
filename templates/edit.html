@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Edit page </title>
+</head>
+<body style ="background-color:powderblue;">
+
+</style>
+
+     <div>
+         <form action="/RecordEdited", method="POST">
+             {% csrf_token %}
+             <h3>ID <input required autofocus type="text" name="id"  value="{{id}}"> </h3>
+             <h3>Student Name <input required autofocus type="text" name="name" value={{name}}> </h3>
+             <h3>Student Address <input required autofocus type="text" name="address" value={{address}}></h3>
+             <h3>Student Contact Number <input required autofocus type="text" name="number" value={{number}}></h3>
+             <h3>password <input required autofocus type="text" name="password" value={{password}}></h3>
+             <input type="submit" id="button" value="Edit Record">
+
+         </form>
+         <span> {{msg}}</span>
+      </div>
+
+  <div  if="DivTwo ">
+         <form  action="/show">
+             <input type="submit" value="show record">
+
+         </form>
+     </div>
+</body>
+</html>

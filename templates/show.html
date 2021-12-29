@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Data</title>
+</head>
+<body>
+    {{msg}}
+    <h2 id="head"> show all data</h2>
+<form method="POST" action="/send">
+    {% csrf_token %}
+
+<table>
+    <thead>
+        <th> ID </th>
+        <th> Student Name</th>
+        <th> Student Address</th>
+        <th> Student Contact Number</th>
+        <th> password</th>
+        <th> Buttons</th>
+
+    </thead>
+    {% for d in data %}
+    <tr>
+         <td>{{d.ID}} </td>
+         <td>{{d.name}} </td>
+         <td>{{d.address}} </td>
+         <td>{{d.number}} </td>
+         <td>{{d.password}} </td>
+        <td>
+            <a href="/edit?id={{d.ID}}">Edit</a>
+            <a href="/delete?id={{d.ID}}">Delete</a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+</table>
+</form>
+<button onclick="history.back()">Go Back</button><br>
+    <button type="button">sort</button>
+</body>
+</html>
